@@ -51,7 +51,7 @@ function GroupAdd()
 function CreatingUser()
 {
 	$public_key = $(curl https://raw.githubusercontent.com/f1reSong/scripts/master/pub-key)
-	useradd -m -s /usr/bin/bash $username
+	useradd -m -s /bin/bash $username
 	mkdir /home/$username/.ssh
 	echo $public_key > /home/$username/.ssh/authorized_keys
 	chown $username /home/$username/.ssh && chown $username /home/$username/.ssh/authorized_keys
