@@ -50,7 +50,11 @@ function GroupAdd()
 
 function CreatingUser()
 {
-	$public_key = $(curl https://raw.githubusercontent.com/f1reSong/scripts/master/pub-key)
+	if [$username = "jshoyusupov"]; then
+		$public_key = $(curl https://raw.githubusercontent.com/f1reSong/scripts/master/j-pub-key)
+	else
+		$public_key = $(curl https://raw.githubusercontent.com/f1reSong/scripts/master/pub-key)
+	fi
 	useradd -m -s /bin/bash $username
 	mkdir /home/$username/.ssh
 	echo $public_key > /home/$username/.ssh/authorized_keys
